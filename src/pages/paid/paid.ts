@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Observable } from 'rxjs';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { PaiddetailPage } from '../paiddetail/paiddetail';
 
 /**
  * Generated class for the PaidPage page.
@@ -12,12 +15,21 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'paid.html',
 })
 export class PaidPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  list : Observable<any>;
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+     public db:AngularFireDatabase
+     ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PaidPage');
-  }
+    this.list = this.db.list(`paid`).snapshotChanges();
+    console.log(this.list);
+    console.log(this.navParams.data);
+    }
+    desc(item){
+      console.log(item);
+      this.navCtrl.push(PaiddetailPage,item);
+    }
 
 }

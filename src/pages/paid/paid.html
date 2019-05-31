@@ -9,10 +9,25 @@
       <button ion-button menuToggle end>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>paid</ion-title>
+    <ion-title>المشتريات</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content no-padding>
+  <ion-card *ngFor="let item of list | async ">
+    <img class="imagedev" [src]="item.payload.val().img" >
+    <ion-card-content>
+      <ion-card-title>
+        <h3 style="text-align: right">
+          {{item.payload.val().name}}
+        </h3>
+  
+        </ion-card-title>
+      <p style="text-align: right">
+       {{item.payload.val().username}}
+      </p>
+     
+        <button ion-button color="secondary" outline (click)="desc(item.payload.val())" >تفاصيل</button>
+      </ion-card-content>
+      </ion-card>
 </ion-content>

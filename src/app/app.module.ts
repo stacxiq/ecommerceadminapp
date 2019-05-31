@@ -22,6 +22,7 @@ import { LoginPage } from '../pages/login/login';
 import * as firebase from 'firebase';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProductmgmProvider } from '../providers/productmgm/productmgm';
+import { PaiddetailPage } from '../pages/paiddetail/paiddetail';
 
 
 firebase.initializeApp(firebaseConfig);
@@ -35,7 +36,8 @@ firebase.initializeApp(firebaseConfig);
     ManageProductsPage,
     PaidPage,
     ProductsPage,
-    LoginPage
+    LoginPage,
+    PaiddetailPage
   ],
   imports: [
     AngularFireModule.initializeApp(firebaseConfig),
@@ -55,7 +57,8 @@ firebase.initializeApp(firebaseConfig);
     ManageProductsPage,
     PaidPage,
     ProductsPage,
-    LoginPage
+    LoginPage,
+    PaiddetailPage
   ],
   providers: [
     StatusBar,
