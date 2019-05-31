@@ -5,40 +5,60 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
+import { AddproductsPage } from '../pages/addproducts/addproducts';
+import { PaidPage } from '../pages/paid/paid';
+import  firebase from 'firebase';
+import { LoginPage } from '../pages/login/login';
+import { ManageProductsPage } from '../pages/manage-products/manage-products';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  rootPage:any = ManageProductsPage;
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = HomePage;
-
+  activePage:any;
+  inactive:any;
   pages: Array<{title: string, component: any}>;
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
-    ];
-
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
+  constructor(platform: Platform,
+     statusBar: StatusBar, 
+     splashScreen: SplashScreen ,
+     ) {
+    platform.ready().then(() => {
+      const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+        if (!user || user.email !== "admin@gmail.com") {
+          this.nav.setRoot(LoginPage)
+          unsubscribe();
+        } else {
+          this.rootPage = ManageProductsPage;
+          unsubscribe();
+        }
+      });
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      statusBar.styleDefault();
+      splashScreen.hide();
     });
-  }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    this.pages = [
+      { title: 'اداره المنتجات', component: ManageProductsPage},
+      { title: ' اضافه منتجات', component: AddproductsPage },
+      { title: 'المشتريات ', component: PaidPage },
+    ];
+    this.activePage=this.pages[0];
+  }
+  check(p){
+    return p == this.activePage;
+  }
+  checkm(p){
+    let m=false;
+     if(p != this.activePage){
+       m=true;
+     }
+     return m;
+     
+  }
+  openPage(p){
+    this.nav.setRoot(p.component);
+    this.activePage=p;
   }
 }
