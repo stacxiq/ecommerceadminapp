@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { Camera } from '@ionic-native/camera/ngx';
+import { Camera } from '@ionic-native/camera';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AddproductPage } from '../pages/addproduct/addproduct';
@@ -17,33 +15,30 @@ import { ManageProductsPage } from '../pages/manage-products/manage-products';
 import { PaidPage } from '../pages/paid/paid';
 import { ProductsPage } from '../pages/products/products';
 import { firebaseConfig } from './app.firebase';
-import { IonicStorageModule } from '@ionic/storage';
 import { LoginPage } from '../pages/login/login';
-import * as firebase from 'firebase';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProductmgmProvider } from '../providers/productmgm/productmgm';
 import { PaiddetailPage } from '../pages/paiddetail/paiddetail';
+import { AdminproductsPage } from '../pages/adminproducts/adminproducts';
 
-
-firebase.initializeApp(firebaseConfig);
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     AddproductPage,
     AddproductsPage,
     ManageProductsPage,
     PaidPage,
     ProductsPage,
     LoginPage,
-    PaiddetailPage
+    PaiddetailPage,
+    AdminproductsPage
   ],
   imports: [
-    AngularFireModule.initializeApp(firebaseConfig),
+
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
@@ -51,14 +46,14 @@ firebase.initializeApp(firebaseConfig);
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     AddproductPage,
     AddproductsPage,
     ManageProductsPage,
     PaidPage,
     ProductsPage,
     LoginPage,
-    PaiddetailPage
+    PaiddetailPage,
+    AdminproductsPage
   ],
   providers: [
     StatusBar,
@@ -66,7 +61,8 @@ firebase.initializeApp(firebaseConfig);
     SplashScreen,
     AuthProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProductmgmProvider
+    ProductmgmProvider,
   ]
 })
 export class AppModule {}
+ 

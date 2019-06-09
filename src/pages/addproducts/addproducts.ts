@@ -21,7 +21,8 @@ export class AddproductsPage {
     console.log('ionViewDidLoad AddproductsPage');
   }
   buy(name:string){
-    this.navCtrl.push(AddproductPage);
+    this.navCtrl.push(AddproductPage,name);
+    console.log(name);
   }
 
 

@@ -16,6 +16,7 @@ import { PaiddetailPage } from '../paiddetail/paiddetail';
 })
 export class PaidPage {
   list : Observable<any>;
+  arr=[];
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      public db:AngularFireDatabase
@@ -24,8 +25,13 @@ export class PaidPage {
 
   ionViewDidLoad() {
     this.list = this.db.list(`paid`).snapshotChanges();
-    console.log(this.list);
-    console.log(this.navParams.data);
+    this.list.subscribe( (data:any)=>{
+      data.forEach(element => {
+        this.arr.push(element.payload.val());
+      });
+      this.arr = this.arr.reverse();
+      
+    })
     }
     desc(item){
       console.log(item);

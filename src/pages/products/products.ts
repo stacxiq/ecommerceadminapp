@@ -30,7 +30,7 @@ export class ProductsPage {
   }
   del(item:any){
     this.alert.create({
-      subTitle:"هل انت متأكد من حذف الاكلة؟",
+      subTitle:"هل انت متأكد من حذف ؟",
       cssClass:"setdire",
       buttons:[{text:"حذف",handler: ()=> {
         this.db.list(`waitingproducts/${this.navParams.data}`).remove(item).then( OmarReal => {
@@ -43,13 +43,16 @@ export class ProductsPage {
       }},"الغاء"]
     }).present();
   }
-  add(item){
+  add(item,key){
     this.db.list(`products/${this.navParams.data}`).push(item).then( OmarReal => {
-      this.toast.create({
-        message:"تم ",
-        duration:3000,
-        cssClass:"setdire"
-      }).present();
-    } )
-  }
+      this.db.list(`waitingproducts/${this.navParams.data}`).remove(key).then(()=>{
+        this.toast.create({
+          message:"تم ",
+          duration:3000,
+          cssClass:"setdire"
+        }).present();
+      })
+
+    } );
+}
 }

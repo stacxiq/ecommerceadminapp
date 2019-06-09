@@ -21,13 +21,13 @@
       
             </ion-card-title>
           <p>
-           {{item.payload.val().des}}
+           {{item.payload.val().desc}}
           </p>
         </ion-card-content>
         <ion-item>
             <span item-start></span>
             <span item-start></span>
-            <button ion-button icon-start clear item-end (click)="add(item.payload.val())">
+            <button ion-button icon-start clear item-end (click)="add(item.payload.val(),item.payload.key)">
               <ion-icon name="add"></ion-icon>
               add
             </button>

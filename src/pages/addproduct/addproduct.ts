@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AuthProvider } from '../../providers/auth/auth';
 import $ from 'jquery';
-import firebase, { storage } from 'firebase';
-import { Storage } from '@ionic/storage'
+import firebase from 'firebase';
 import { AddproductsPage } from '../addproducts/addproducts';
 
 
@@ -30,7 +29,6 @@ export class AddproductPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public db : AngularFireDatabase, private auth:AngularFireAuth, public toast : ToastController,
      private camera:Camera,
-     private storage:Storage,
      public load : LoadingController,
       public af:AuthProvider,
       ) {
@@ -41,14 +39,6 @@ export class AddproductPage {
     console.log('ionViewDidLoad AddfodPage');
     var navh = $(".header").innerHeight();
     console.log(navh);
-
-    console.log(this.navParams.data);
-    this.storage.get('id').then((userid)=>{
-      console.log(' users : '+userid);
-      this.uuid = userid;
-    }).then(()=>{
-      console.log('uuid' + this.uuid)
-    });
     
   }
   imageurl = "";
@@ -68,6 +58,16 @@ export class AddproductPage {
       description: this.desc,
       image: this.imageurl,
       price: this.price
+    }).then((data)=>{    
+      console.log(data.key);
+       this.db.list(`adminproducts`).push({
+        name: this.name,
+        description: this.desc,
+        image: this.imageurl,
+        price: this.price,
+        category:this.navParams.data,
+        key:data.key
+      });  
     });
     var toast = this.toast.create({
       message: "تم نشر ",

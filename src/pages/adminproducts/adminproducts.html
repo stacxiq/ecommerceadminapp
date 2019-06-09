@@ -1,0 +1,41 @@
+<!--
+  Generated template for the AdminproductsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar style="text-align: right">
+      <button ion-button menuToggle end>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>منتجاتي</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let item of list | async ">
+    <img class="imagedev" [src]="item.payload.val().image" >
+    <ion-card-content>
+      <ion-card-title>
+        <h3 style="text-align: right">
+          {{item.payload.val().name}}
+        </h3>
+  
+        </ion-card-title>
+      <p style="text-align: right">
+       {{item.payload.val().description}}
+      </p>
+    </ion-card-content>
+    <ion-item>
+        <span item-start></span>
+        <span item-start></span>
+        <button ion-button icon-start clear item-end (click)="del(item.payload.key
+        ,item.payload.val().category,item.payload.val().key)">
+            <ion-icon name="trash"></ion-icon>
+            مسح
+          </button>
+      </ion-item>
+
+    </ion-card>
+</ion-content>

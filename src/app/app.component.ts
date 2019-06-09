@@ -3,13 +3,12 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AddproductsPage } from '../pages/addproducts/addproducts';
 import { PaidPage } from '../pages/paid/paid';
 import  firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { ManageProductsPage } from '../pages/manage-products/manage-products';
+import { AdminproductsPage } from '../pages/adminproducts/adminproducts';
 @Component({
   templateUrl: 'app.html'
 })
@@ -40,9 +39,10 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'اداره المنتجات', component: ManageProductsPage},
-      { title: ' اضافه منتجات', component: AddproductsPage },
-      { title: 'المشتريات ', component: PaidPage },
+      { title: 'اداره منتجات الاعضاء', component: ManageProductsPage},
+      { title: '  اضافه منتجات انتيكا', component: AddproductsPage },
+      { title: 'المبيعات ', component: PaidPage },
+      { title :'منتجاتي', component: AdminproductsPage}
     ];
     this.activePage=this.pages[0];
   }
