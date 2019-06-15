@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+import {NavParams, ToastController, AlertController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 
@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsPage {
   list : Observable<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navParams: NavParams,
     public db : AngularFireDatabase, public alert : AlertController,
     public toast : ToastController) {
 

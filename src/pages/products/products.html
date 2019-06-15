@@ -15,13 +15,13 @@
         <img class="imagedev" [src]="item.payload.val().image" >
         <ion-card-content>
           <ion-card-title>
-            <h3>
+            <h3 style="text-align: right">
               {{item.payload.val().name}}
             </h3>
-      
+
             </ion-card-title>
-          <p>
-           {{item.payload.val().desc}}
+          <p style="text-align: right">
+           {{item.payload.val().description}}
           </p>
         </ion-card-content>
         <ion-item>
@@ -31,7 +31,7 @@
               <ion-icon name="add"></ion-icon>
               add
             </button>
-            <button ion-button icon-start clear item-end (click)="del(item.payload.key)">
+            <button ion-button icon-start clear item-start (click)="del(item.payload.key)">
                 <ion-icon name="trash"></ion-icon>
                 delete
               </button>

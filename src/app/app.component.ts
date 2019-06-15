@@ -5,10 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AddproductsPage } from '../pages/addproducts/addproducts';
 import { PaidPage } from '../pages/paid/paid';
-import  firebase from 'firebase';
 import { LoginPage } from '../pages/login/login';
 import { ManageProductsPage } from '../pages/manage-products/manage-products';
 import { AdminproductsPage } from '../pages/adminproducts/adminproducts';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FriendsPage } from '../pages/friends/friends';
 @Component({
   templateUrl: 'app.html'
 })
@@ -19,12 +20,13 @@ export class MyApp {
   inactive:any;
   pages: Array<{title: string, component: any}>;
   constructor(platform: Platform,
-     statusBar: StatusBar, 
+     statusBar: StatusBar,
      splashScreen: SplashScreen ,
+     private auth:AngularFireAuth
      ) {
     platform.ready().then(() => {
-      const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-        if (!user || user.email !== "admin@gmail.com") {
+      const unsubscribe = auth.auth.onAuthStateChanged(user => {
+        if (!user || user.email !== "admin96@admin.com") {
           this.nav.setRoot(LoginPage)
           unsubscribe();
         } else {
@@ -42,8 +44,10 @@ export class MyApp {
       { title: 'اداره منتجات الاعضاء', component: ManageProductsPage},
       { title: '  اضافه منتجات انتيكا', component: AddproductsPage },
       { title: 'المبيعات ', component: PaidPage },
+      { title: 'قائمة الاصدقاء ', component: FriendsPage },
       { title :'منتجاتي', component: AdminproductsPage}
     ];
+    // الاصدقاء
     this.activePage=this.pages[0];
   }
   check(p){
@@ -55,7 +59,7 @@ export class MyApp {
        m=true;
      }
      return m;
-     
+
   }
   openPage(p){
     this.nav.setRoot(p.component);

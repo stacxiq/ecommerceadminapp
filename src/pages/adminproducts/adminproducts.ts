@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { NavController, AlertController, ToastController } from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -11,14 +11,13 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class AdminproductsPage {
 
   list : Observable<any>;
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController,
     public db : AngularFireDatabase, public alert : AlertController,
     public toast : ToastController) {}
 
   ionViewDidLoad() {
     this.list = this.db.list(`adminproducts`).snapshotChanges();
     console.log(this.list);
-    console.log(this.navParams.data);
   }
   del(item:any,cat,key){
     this.alert.create({

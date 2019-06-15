@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import { NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-paiddetail',
@@ -7,12 +7,11 @@ import {  NavController, NavParams } from 'ionic-angular';
 })
 export class PaiddetailPage {
   product : any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     this.product = this.navParams.data;
-    console.log(this.product);
   }
 
 }

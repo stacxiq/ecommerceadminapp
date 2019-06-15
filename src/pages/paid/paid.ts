@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 import { Observable } from 'rxjs';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { PaiddetailPage } from '../paiddetail/paiddetail';
@@ -18,7 +18,6 @@ export class PaidPage {
   list : Observable<any>;
   arr=[];
   constructor(public navCtrl: NavController,
-     public navParams: NavParams,
      public db:AngularFireDatabase
      ) {
   }
@@ -30,7 +29,7 @@ export class PaidPage {
         this.arr.push(element.payload.val());
       });
       this.arr = this.arr.reverse();
-      
+
     })
     }
     desc(item){

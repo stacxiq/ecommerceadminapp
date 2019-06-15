@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 import { AddproductPage } from '../addproduct/addproduct';
 
 /**
@@ -14,7 +14,7 @@ import { AddproductPage } from '../addproduct/addproduct';
 })
 export class AddproductsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {

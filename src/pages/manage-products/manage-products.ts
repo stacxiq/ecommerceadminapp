@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import {  NavController} from 'ionic-angular';
 import { ProductsPage } from '../products/products';
 
 /**
@@ -15,11 +15,10 @@ import { ProductsPage } from '../products/products';
 })
 export class ManageProductsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ManageProductsPage');
   }
   buy(name:string){
     this.navCtrl.push(ProductsPage,name);
