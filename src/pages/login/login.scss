@@ -1,12 +1,11 @@
-page-login {
 
-}
 page-login .fther {
     height: 30%;
-    background-image: url('../../assets/imgs/back.svg');
+    background-image: url('../../assets/imgs/backg.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center top;
+    height: 170px;
 }
 
 page-login .register {
@@ -21,21 +20,23 @@ page-login .register input {
     border: 0;
     padding-bottom: 0px;
     padding-right: 0px;
+    color: #fff;
+    background-color: transparent;
 }
 
 page-login .register h2 {
     margin-bottom: 10px;
-    color: #555;
+    color: rgb(255, 255, 255);
 }
 
 page-login .register h2 > span{
-    color: #3498db;
+    color: #fffa65;
 }
 
 page-login .register p {
     font-size: 17px;
     margin-bottom: 10px;
-    color: #777;
+    color: rgb(255, 255, 255);
 }
 page-login .register .logbut {
     text-align: center;
@@ -43,27 +44,25 @@ page-login .register .logbut {
 }
 
 page-login .register .logbut p{
-margin-top: 10px;
+    margin-top: 10px
 }
 
 page-login .register .logbut p > span {
-    color: #3498db;
+    color: #fffa65;
 }
 
 page-login .register button {
-    background: #3498db;
-    color: #FFF;
+    background: #fffa65;
+    color: rgb(0, 0, 0);
     padding: 15px 30px;
     margin-bottom: 15px;
     border-radius: 3px;
-    box-shadow: 0px 3px 3px #ccc;
+    box-shadow: 0px 3px 3px rgb(0, 0, 0);
 }
 
 .loaddire {
     font-family: 'Cairo', sans-serif;
 }
-
-
 
 page-login .login {
     font-family: 'Cairo', sans-serif;
@@ -77,21 +76,23 @@ page-login .login input {
     border: 0;
     padding-bottom: 0px;
     padding-right: 0px;
+    color: #fff;
+    background-color: transparent;
 }
 
 page-login .login h2 {
     margin-bottom: 10px;
-    color: #555;
+    color: rgb(255, 255, 255);
 }
 
 page-login .login h2 > span{
-    color: #3498db;
+    color: #fffa65;
 }
 
 page-login .login p {
     font-size: 17px;
     margin-bottom: 10px;
-    color: #777;
+    color: rgb(255, 255, 255);
 }
 
 page-login .login .logbut {
@@ -100,22 +101,23 @@ page-login .login .logbut {
 }
 
 page-login .login .logbut p{
-margin-top: 10px;
+    margin-top: 10px;
 }
 
 page-login .login .logbut p > span {
-    color: #3498db;
+    color: #fffa65;
 }
 
 page-login .login button {
-    background: #3498db;
-    color: #FFF;
+    background: #fffa65;
+    color: rgb(0, 0, 0);
     padding: 15px 30px;
     margin-bottom: 15px;
     border-radius: 3px;
-    box-shadow: 0px 3px 3px #ccc;
+    box-shadow: 0px 3px 3px rgb(0, 0, 0);
 }
 
 .loaddire {
     font-family: 'Cairo', sans-serif;
+    color: #000;
 }

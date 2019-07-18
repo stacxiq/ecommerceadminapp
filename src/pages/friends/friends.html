@@ -9,23 +9,21 @@
       <button ion-button menuToggle end>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title style="text-align: right">قائمة الاصدقاء</ion-title>
+      <ion-title id="navtitle" style="font-weight: bold;text-align: center;color: black;"> قائمه الاصدقاء  </ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
     <ion-list no-lines>
-        <ion-list-header>
+        <ion-list-header style="color: #fff">
           Requests
         </ion-list-header>
-        <ion-item-sliding *ngFor="let item of myrequests">
-          <ion-item>
+          <ion-item *ngFor="let item of myrequests">
           <ion-avatar item-left>
             <img src="{{item.image}}">
           </ion-avatar>
-          <h4 style="color:black">{{item.name}}</h4>
-          </ion-item>
-          <ion-item-options>
+          <h4 style="color:rgb(255, 255, 255)" *ngIf="item.name">{{item.name}}</h4>
             <button ion-button color="secondary" (click)="accept(item)">
               <ion-icon name="checkmark"></ion-icon>
               ADD
@@ -34,16 +32,15 @@
               <ion-icon name="trash"></ion-icon>
               NOPE
             </button>
-          </ion-item-options>
-        </ion-item-sliding>
-        <ion-list-header>
+            </ion-item>
+        <ion-list-header style="color: #fff">
           Friends
         </ion-list-header>
         <ion-item *ngFor="let item of myfriends" (click)="friendchat(item)">
           <ion-avatar item-left>
             <img src={{item.image}}>
           </ion-avatar>
-          <h3 style="color:black">{{item.name}}</h3>
+          <h3 style="color:rgb(255, 255, 255)">{{item.name}}</h3>
         </ion-item>
       </ion-list>
 </ion-content>

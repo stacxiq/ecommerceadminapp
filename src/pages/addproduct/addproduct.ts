@@ -24,7 +24,7 @@ export class AddproductPage {
   desc:string;
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
-    public db : AngularFireDatabase,
+     public db : AngularFireDatabase,
      public toast : ToastController,
      private camera:Camera,
      public load : LoadingController,
@@ -55,7 +55,7 @@ export class AddproductPage {
       description: this.desc,
       image: this.imageurl,
       price: this.price,
-      status:this.status
+      status:this.status,
     }).then((data)=>{
       console.log(data.key);
        this.db.list(`adminproducts`).push({

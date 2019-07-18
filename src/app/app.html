@@ -1,16 +1,44 @@
 <ion-menu [content]="content" side="right">
   <ion-header>
-    <ion-toolbar color="nav">
-      <ion-title style="text-align: right">أنتيكــا</ion-title>
-    </ion-toolbar>
+    <!-- <ion-toolbar color="primary">
+        <ion-title id="navtitle" style="font-weight: bold;text-align: center;color: black;"> انتيكا </ion-title>
+    </ion-toolbar> -->
   </ion-header>
 
+
+
   <ion-content>
-    <ion-list no-lines>
-      <button menuClose ion-item *ngFor="let p of pages" [class.active]="check(p)" [class.inactive]="checkm(p)"(click)="openPage(p)" style="text-align: right; padding: 10px">
+
+    <!-- <ion-list no-lines>
+      <button menuClose ion-item *ngFor="let p of pages" [class.active]="check(p)" [class.inactive]="checkm(p)"(click)="openPage(p)" style="text-align: right; padding: 10px;margin-top: 10px;">
         {{p.title}}
       </button>
+    </ion-list> -->
+
+  
+    <br>
+    <ion-list no-lines>
+        <button menuClose ion-item class="{{a1}}" (click)="nav1()" style="text-align: right; padding: 10px;margin-top: 10px;">
+        <ion-row item-end> <label style="margin-right: 10px;margin-top: 4.5px"> اداره منتجات الاعضاء </label> <img style="width: 28px;height: 28px;" src="{{img1}}"/></ion-row>
+        </button>
+        <button menuClose ion-item class="{{a2}}" (click)="nav2()" style="text-align: right; padding: 10px;margin-top: 10px;">
+        <ion-row item-end> <label style="margin-right: 10px;margin-top: 4.5px"> اضافه منتجات انتيكا </label> <img style="width: 28px;height: 28px;" src="{{img2}}"/></ion-row>
+        </button>
+        <button menuClose ion-item class="{{a3}}" (click)="nav3()" style="text-align: right; padding: 10px;margin-top: 10px;">
+        <ion-row item-end> <label style="margin-right: 10px;margin-top: 6.5px"> المبيعات </label> <img style="width: 28px;height: 28px;" src="{{img3}}"/></ion-row>
+        </button>
+        <button menuClose ion-item class="{{a4}}" (click)="nav4()" style="text-align: right; padding: 10px;margin-top: 10px;">
+        <ion-row item-end> <label style="margin-right: 10px;margin-top: 6.5px"> الطلبات </label> <img style="width: 28px;height: 28px;" src="{{img4}}"/></ion-row>
+        </button>
+        <button menuClose ion-item class="{{a5}}" (click)="nav5()" style="text-align: right; padding: 10px;margin-top: 10px;">
+        <ion-row item-end> <label style="margin-right: 10px;margin-top: 5.5px"> قائمة الاصدقاء </label> <img style="width: 32px;height: 32px;" src="{{img5}}"/></ion-row>
+        </button>
+        <button menuClose ion-item class="{{a6}}" (click)="nav6()" style="text-align: right; padding: 10px;margin-top: 10px;">
+        <ion-row item-end> <label style="margin-right: 10px;margin-top: 4.5px"> منتجاتي </label> <img style="width: 28px;height: 28px;" src="{{img6}}"/></ion-row>
+        </button>
     </ion-list>
+
+
   </ion-content>
 
 

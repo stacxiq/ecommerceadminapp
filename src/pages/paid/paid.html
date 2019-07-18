@@ -1,27 +1,34 @@
 <ion-header>
-  <ion-navbar style="text-align: right">
+  <ion-navbar style="text-align: center" color="primary" >
       <button ion-button menuToggle end>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>المبيعات</ion-title>
+      <ion-title id="navtitle" style="font-weight: bold;text-align: center;color: black;"> المبيعات  </ion-title>
   </ion-navbar>
 </ion-header>
 
+
+
 <ion-content no-padding>
-  <ion-card *ngFor="let item of arr  ">
-    <img class="imagedev" [src]="item.img" >
+  <ion-card *ngFor="let item of arr" style="margin-top:30px;">
+    <img style="height: 200px;width: 100%;" class="imagedev" [src]="item.img" >
     <ion-card-content>
       <ion-card-title>
-        <h3 style="text-align: right">
+        <h3 style="text-align: center; color: #fff;font-size: 20px">
           {{item.name}}
         </h3>
 
         </ion-card-title>
-      <p style="text-align: right">
+      <p style="text-align: right;color:#fff">
        {{item.username}}
       </p>
 
-        <button ion-button color="secondary" outline (click)="desc(item)" >تفاصيل</button>
+      <div class="createbut">
+          <button style="width: 30%;" ion-button color="primary" outline (click)="desc(item)" >تفاصيل</button>
+        </div>
+
+
       </ion-card-content>
+     
       </ion-card>
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, Events, AlertController, Platform } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { RequestProvider } from '../../providers/request/request';
@@ -10,7 +10,19 @@ import { ChatPage } from '../chat/chat';
   selector: 'page-friends',
   templateUrl: 'friends.html',
 })
-export class FriendsPage {
+export class FriendsPage implements OnInit{
+  ngOnInit(): void {
+    this.requestservice.getmyrequests();
+    this.requestservice.getmyfriends();
+    this.events.subscribe('gotrequests', () => {
+      this.myrequests = [];
+      this.myrequests = this.requestservice.userdetails;
+    })
+    this.events.subscribe('friends', () => {
+      this.myfriends = [];
+      this.myfriends = this.requestservice.myfriends;
+    });
+  }
   myrequests;
   myfriends;
   firereq = firebase.database().ref('/requests');
@@ -23,17 +35,7 @@ export class FriendsPage {
   }
 
   ionViewDidLoad() {
-    this.requestservice.getmyrequests();
-    this.requestservice.getmyfriends();
-    this.myfriends = [];
-    this.events.subscribe('gotrequests', () => {
-      this.myrequests = [];
-      this.myrequests = this.requestservice.userdetails;
-    })
-    this.events.subscribe('friends', () => {
-      this.myfriends = [];
-      this.myfriends = this.requestservice.myfriends;
-    });
+
     }
   ionViewWillEnter() {
 

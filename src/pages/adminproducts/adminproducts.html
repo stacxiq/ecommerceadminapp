@@ -5,37 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar style="text-align: right">
+  <ion-navbar color="primary" style="text-align: right">
       <button ion-button menuToggle end>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>منتجاتي</ion-title>
+      <ion-title id="navtitle" style="font-weight: bold;text-align: center;color: black;"> منتجاتي  </ion-title>
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  <ion-card *ngFor="let item of list | async ">
-    <img class="imagedev" [src]="item.payload.val().image" >
+  <ion-card *ngFor="let item of list | async " style="margin-top:40px;">
+    <img style="height: 200px;width: 100%;" class="imagedev" [src]="item.payload.val().image" >
     <ion-card-content>
       <ion-card-title>
-        <h3 style="text-align: right">
+        <h3 style="text-align: center ; color: #fff;font-size: 20px">
           {{item.payload.val().name}}
         </h3>
   
         </ion-card-title>
-      <p style="text-align: right">
+      <p style="text-align: right;color: #fff">
        {{item.payload.val().description}}
       </p>
     </ion-card-content>
     <ion-item>
-        <span item-start></span>
-        <span item-start></span>
-        <button ion-button icon-start clear item-end (click)="del(item.payload.key
-        ,item.payload.val().category,item.payload.val().key)">
+        <span item-center></span>
+        <span item-center></span>
+        <button ion-button icon-center clear item-center (click)="del(item.payload.key,item.payload.val().category,item.payload.val().key)">
             <ion-icon name="trash"></ion-icon>
-            مسح
+            حذف
           </button>
       </ion-item>
 
-    </ion-card>
+    </ion-card><br><br>
 </ion-content>

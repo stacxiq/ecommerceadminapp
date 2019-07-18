@@ -24,6 +24,9 @@ import { FriendsPage } from '../pages/friends/friends';
 import { ChatProvider } from '../providers/chat/chat';
 import { ImghandlerProvider } from '../providers/imghandler/imghandler';
 import { AdduserProvider } from '../providers/adduser/adduser';
+import { UserCartPage } from '../pages/user-cart/user-cart';
+import { CartPage } from '../pages/cart/cart';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -32,11 +35,13 @@ import { AdduserProvider } from '../providers/adduser/adduser';
     ManageProductsPage,
     PaidPage,
     ProductsPage,
+    UserCartPage,
     LoginPage,
     PaiddetailPage,
     AdminproductsPage,
     ChatPage,
-    FriendsPage
+    FriendsPage,
+    CartPage
   ],
   imports: [
 
@@ -54,11 +59,13 @@ import { AdduserProvider } from '../providers/adduser/adduser';
     ManageProductsPage,
     PaidPage,
     ProductsPage,
+    UserCartPage,
     LoginPage,
     PaiddetailPage,
     AdminproductsPage,
     ChatPage,
-    FriendsPage
+    FriendsPage,
+    CartPage
   ],
   providers: [
     StatusBar,

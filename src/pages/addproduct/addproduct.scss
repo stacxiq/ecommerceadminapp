@@ -16,12 +16,12 @@ page-addproduct {
     }
 
   .input{
-    border: 1px solid #487EB0;
+    border: 1px solid #fffa65;
     margin-top: 10px;
     margin-bottom: 5px;
   }
   .select{
-    border: 1px solid #487EB0;
+    border: 1px solid #fffa65;
     margin-top: 5px;
     margin-bottom: 5px;
     direction: rtl !important;
@@ -79,8 +79,8 @@ page-addproduct .logorreg {
 page-addproduct .header-content .content .inputs button:first-child {
     padding: 20px;
     display: block;
-    border: 1px solid #007bff !important;
-    color: #007bff;
+    border: 1px solid #fffa65 !important;
+    color: #fffa65;
     font-family: 'Cairo', sans-serif;
     float: right;
 }
@@ -90,9 +90,9 @@ page-addproduct .header-content .content .inputs button:first-child {
 page-addproduct .header-content .content .inputs h2 {
 font-family: 'Cairo', sans-serif;
 margin-top: 20px;
-border-bottom: 1px dashed #007bff;
+border-bottom: 1px dashed #fffa65;
 display: inline-block;
-color: #007bff;
+color: #fffa65;
 padding-bottom: 8px;
 padding-right: 10px;
 padding-left: 10px;
@@ -161,7 +161,7 @@ page-addproduct .micon{
     height: 130px;
     line-height: 130px;
     font-size: 31px;
-    color: #1e8aff;
+    color: #fffa65;
 }
 
 
@@ -179,7 +179,7 @@ page-addproduct  .myimage {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #007bff;
+    color: #fffa65;
     width: 100%;
     border: 1px dashed #CCC;
     border-radius: 3px;
@@ -206,4 +206,12 @@ page-addproduct  .myimage p {
   padding-left: 0!important;
   float: right;
 
+}
+page-auth .create .createbut {
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  direction: rtl;
+  width: 30px;
 }

@@ -1,26 +1,20 @@
-<!--
-  Generated template for the ProductsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar>
-    <ion-title>products</ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar color="primary" style="text-align: right;" >
+      <ion-title id="navtitle" style="font-weight: bold;text-align: center;color: black;"> المنتجات  </ion-title>
+    </ion-navbar>
+  </ion-header>
 
 <ion-content padding>
-    <ion-card *ngFor="let item of list | async ">
-        <img class="imagedev" [src]="item.payload.val().image" >
+    <ion-card *ngFor="let item of list | async " style="margin-top:35px;">
+        <img style="height: 200px;width: 100%;" class="imagedev" [src]="item.payload.val().image" >
         <ion-card-content>
           <ion-card-title>
-            <h3 style="text-align: right">
+            <h3 style="text-align: center;color: #fff;font-size: 20px">
               {{item.payload.val().name}}
             </h3>
 
             </ion-card-title>
-          <p style="text-align: right">
+          <p style="text-align: right;color:#fff">
            {{item.payload.val().description}}
           </p>
         </ion-card-content>

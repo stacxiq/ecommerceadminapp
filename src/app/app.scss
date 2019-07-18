@@ -16,18 +16,22 @@
 // automatically applied to the <body> element in the app.
 ion-menu{
     ion-content{
-     background-color: #1F3C88 !important;
+     background-color: #222 !important;
     }
    }
 
 .active{
-    background-color: #5896D3 !important;
-    color: white;
+    background-color: rgb(0, 0, 0) !important;
+    color: #fffa65;
+    width: 100%;
+    font-size: 19px;
 }
 .inactive{
-    background-color: #1F3C88 !important;
-    color: #848484;
+    background-color: #222 !important;
+    color: white;
+    width: 100%;
+    font-size: 16px;
 }
 toolbar{
-    background-color: #1F3C88 !important;
+    background-color: #fffa65 !important;
 }
